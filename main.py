@@ -13,7 +13,10 @@ app = FastAPI()
 
 class Question(BaseModel):
     message: str
-
+    
+@app.get("/")
+def read_root():
+    return {"message": "Backend is working!"}
 @app.post("/ask")
 def ask_user(question: Question):
     headers = {
